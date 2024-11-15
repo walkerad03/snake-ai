@@ -21,9 +21,7 @@ n_actions = env.action_space.n
 n_observations = len(observation)
 
 model = DQN(n_observations, n_actions).to(device)
-model.load_state_dict(
-    torch.load("models/i_am_training_this_overnight/14200.pth")
-)
+model.load_state_dict(torch.load("checkpoint.pth", weights_only=True))
 
 while True:
     observation = torch.tensor(
